@@ -4,17 +4,6 @@
 #include <stdbool.h>
 #include <time.h>
 
-/**
-* @brief input_rand_min считывает значение, введённое пользователем
-* @return возвращает значение, введённое пользователем
-*/
-int input_rand_max(void);
-
-/**
-* @brief input_rand_min считывает значение, введённое пользователем
-* @return возвращает значение, введённое пользователем
-*/
-int input_rand_min(void);
 
 /**
 * @brief choose перечисляет констаты для того, чтобы пользователь выбрал, как заполнять список
@@ -143,6 +132,7 @@ int main(void)
 		initialize_rand(list_of_number, max, min);
 		break;
 	default:
+		puts("Error");
 		free(list_of_number);
 		return 1;
 	}
@@ -158,12 +148,8 @@ int main(void)
 
 int summ_of_even(const int* list_of_number, const size_t n)
 {
-	if (check_list_null(list_of_number))
-	{
-		puts("Error");
+	check_list_null(list_of_number);
 
-		exit(EXIT_FAILURE);
-	}
 	int summ = 0;
 
 	for (size_t i = 0; i < n; i++)
@@ -180,12 +166,7 @@ int summ_of_even(const int* list_of_number, const size_t n)
 int count_of_two_char(const int* list_of_number, const size_t n)
 {
 
-	if (check_list_null(list_of_number))
-	{
-		puts("Error");
-
-		exit(EXIT_FAILURE);
-	}
+	check_list_null(list_of_number);
 
 	int count = 0;
 
@@ -204,12 +185,7 @@ int count_of_two_char(const int* list_of_number, const size_t n)
 
 void replace_list(int* list_of_numbers, const size_t n)
 {
-	if (check_list_null(list_of_numbers))
-	{
-		puts("Error");
-
-		exit(EXIT_FAILURE);
-	}
+	check_list_null(list_of_numbers);
 
 	size_t index_unpositive_element = find_unpositive_element(list_of_numbers, n);
 
@@ -269,38 +245,6 @@ int input(void)
 bool is_positive(const int n) {
 
 	return n > 0;
-}
-
-int input_rand_max(void)
-{
-	int number;
-	puts("Enter the maximal number of random area");
-
-	if (scanf_s("%d", &number) != 1)
-	{
-
-		puts("Your input is uncorrected");
-
-		exit(EXIT_FAILURE);
-	}
-
-	return number;
-}
-
-int input_rand_min(void)
-{
-	int number;
-	puts("Enter the minimal number of random area");
-
-	if (scanf_s("%d", &number) != 1)
-	{
-
-		puts("Your input is uncorrected");
-
-		exit(EXIT_FAILURE);
-	}
-
-	return number;
 }
 
 size_t positive_input(void)
