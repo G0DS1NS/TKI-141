@@ -143,7 +143,7 @@ int main(void)
 		initialize_rand(list_of_number, max, min);
 		break;
 	default:
-		
+		free(list_of_number);
 		return 1;
 	}
 
