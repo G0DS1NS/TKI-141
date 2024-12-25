@@ -112,12 +112,21 @@ size_t find_positive_element(const int* list, const size_t n);
 */
 void replace(const int* list, const size_t n);
 
+/**
+* @brief choose выбор способа заполнения списка
+* @param manually ручной способ заполнения списка
+* @param random заполнение спика случайными числами
+*/
 typedef enum
 {
 	manually = 1,
 	random
 }choose;
 
+/**
+* @brief main точка входа в программу
+* @return возвращает 0 в случае успеха
+*/
 int main(void)
 {
 	puts("Enter the len of list:");
